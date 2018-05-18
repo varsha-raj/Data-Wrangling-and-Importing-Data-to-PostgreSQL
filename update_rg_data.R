@@ -13,11 +13,11 @@ drv <- dbDriver("PostgreSQL")
 
 con <- dbConnect(drv, dbname = "mars_testing",
 
-	host = "28-ARATHEFFE2.water.gov", port = 5432,
+	host = "**********", port = 5432,
 
 	user = "postgres",
 
-	password = "silly-monkey-antics")
+	password = "****-****-****")
 
 rg_marsdb <- dbGetQuery(con, "SELECT * FROM rainfall_gage")
 
