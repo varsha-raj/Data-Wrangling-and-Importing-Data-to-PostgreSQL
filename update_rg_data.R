@@ -1,3 +1,4 @@
+
 library(RPostgreSQL)
 library(RODBC)
 library(dplyr)
@@ -8,23 +9,24 @@ options(error=recover)
 options(warn=-1)
 options(stringsAsFactors=FALSE)
 options(scipen=999)
+#Connect to postgres database
 
 drv <- dbDriver("PostgreSQL")
 
 con <- dbConnect(drv, dbname = "mars_testing",
 
-	host = "**********", port = 5432,
+	host = "hostname", port = 5432,
 
 	user = "postgres",
 
-	password = "****-****-****")
-
+	password = "pwd")
+#Query rain gage table
 rg_marsdb <- dbGetQuery(con, "SELECT * FROM rainfall_gage")
 
 dbDisconnect(con)
 
-
-db <- "D:/MARS/CSORain2010/CSORain2010.mdb"
+#Local rain gage access database
+db <- "raingage.mdb"
 
 mychannel <- odbcConnectAccess2007(db)
 
@@ -38,12 +40,14 @@ names(rg_masterdb) <- c('gage_uid', 'dtime_est', 'rainfall_in')
 
 if(nrow(rg_masterdb) > nrow(rg_marsdb)) {
 
-	new_df <- anti_join(rg_marsdb, rg_masterdb, by = c('gage_uid', 'dtime_est')) %>%
+	
+#Extract only new data
+	new_df <- anti_join(rg_masterdb, rg_marsdb, by = c('gage_uid', 'dtime_est')) 
+	
 
-	      	  mutate(rainfall_gage_uid = last(last_val):n()) %>% select(rainfall_gage_uid, everything())
-
-
+#Append new data to existing records in postrgres database
 	dbWriteTable(con, "rainfall_gage", new_df, append= TRUE, row.names = FALSE)
+	
 
 	dbDisconnect(con)
 
