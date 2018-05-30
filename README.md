@@ -44,7 +44,7 @@ The script read three tables, two from the postgresSQL. Data from access databas
 2. rainfall_gage dummy data:
 
 | rainfall_gage_uid | gage_uid | datetime_est        | rainfall_in |
-| ---               | ---      | ---                 |             |
+| ---               | ---      | ---                 | ---         |
 | 1		   			| 1        | 1990-01-01 00:15:00 | 0.2         |
 | 2        			| 1        | 1990-01-01 00:30:00 | 0.01        |
 | 3        			| 1        | 1990-01-01 00:45:00 | 0           |
@@ -59,7 +59,7 @@ The script read three tables, two from the postgresSQL. Data from access databas
 3. raingage_data dummy data (access database)
 
 | gageno   | datetime_est        | rainfall_in |
-| ---      | ---                 |             |
+| ---      | ---                 | ---         |
 | 1        | 1990-01-01 00:15:00 | 0.2         |
 | 1        | 1990-01-01 00:30:00 | 0.01        |
 | 1        | 1990-01-01 00:45:00 | 0           |
