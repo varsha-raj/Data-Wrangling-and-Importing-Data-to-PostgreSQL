@@ -7,6 +7,7 @@ There are two main ways to connect to a database, one is via ODBC (Open DataBase
 RODBC allows you to access the ODBC's capabilities from within R and RpostgreSQL provides an R interface to the PostgreSQL database.
 
 [read more on RpostgreSQL](https://cran.r-project.org/web/packages/RPostgreSQL/RPostgreSQL.pdf) 
+
 [read more on RODBC](https://cran.r-project.org/web/packages/RODBC/RODBC.pdf)
 
 To install these packages, type the following command at the command prompt in the R console:
