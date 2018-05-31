@@ -42,6 +42,10 @@ The script read three tables, two from the postgresSQL. Data from access databas
 | .        | .        |
 | 40       | 40       |
 
+gage_uid: Primary key for this table
+gagename: Corresponding rain gage name for the gage's original data source 
+
+
 2. rainfall_gage dummy data:
 
 | rainfall_gage_uid | gage_uid | datetime_est        | rainfall_in |
@@ -55,6 +59,11 @@ The script read three tables, two from the postgresSQL. Data from access databas
 | .        			| .        | .                   | .           |
 | .        			| .        | .                   | 0.05        |
 | 1190618        	| 40       | 2018-02-16 05:45:00 | 0.23        |
+
+ rainfall_gage_uid: Primary key for this table
+ gage_uid: Unique identifier for the corresponding rain gage 
+ datetime_est: Timestamp at that point
+ rainfall_in: Observed rainfall measurements in inches
 
 
 3. raingage_data dummy data (access database)
@@ -70,3 +79,7 @@ The script read three tables, two from the postgresSQL. Data from access databas
 | .        | .                   | .           |
 | .        | .                   | 0.05        |
 | 40       | 2018-04-30 05:45:00 | 0.08        |
+
+gageno: Rain gage name 
+datetime_est: Timestamp at that point
+rainfall_in: Observed rainfall measurements in inches
